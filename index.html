@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>RailSafe - Smart Railway Safety</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#091827;color:white;font-family:Arial}
+header{background:#17364e;padding:18px;color:#35dfca;font-size:24px;font-weight:bold}
+nav{background:#10283d;padding:13px;display:flex;gap:13px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+.hero{text-align:center;padding:55px 18px;background:#16445d}
+h1 span,h2{color:#35dfca}
+section{padding:25px}
+p{color:#d5e0e8;line-height:1.6}
+.card{background:#17364e;padding:18px;margin:12px 0;border-radius:10px}
+button{background:#35dfca;padding:11px 17px;border:0;border-radius:6px;margin:5px;cursor:pointer}
+.scene{height:190px;background:#29465a;position:relative;overflow:hidden;border-radius:10px;margin:18px 0}
+.train{width:130px;height:65px;background:#e0e8eb;border-bottom:8px solid #35dfca;position:absolute;bottom:20px;left:-140px;border-radius:10px}
+.window{position:absolute;right:12px;top:10px;width:35px;height:23px;background:#23465a}
+.platform{position:absolute;bottom:15px;width:100%;height:10px;background:#aaa}
+.door{position:absolute;bottom:25px;height:100px;width:9px;background:#35dfca;transition:1s}
+.left{left:35%}.right{right:35%}
+.open.left{transform:translateX(-40px)}
+.open.right{transform:translateX(40px)}
+.walk{position:absolute;bottom:25px;left:35%;height:12px;width:0;background:orange;transition:1s}
+.extend{width:30%}
+.status{color:#35dfca;font-weight:bold}
+.generator{text-align:center;font-size:55px}
+footer{text-align:center;background:#17364e;padding:20px}
+@keyframes arrive{to{left:calc(50% - 65px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+
+<body>
+
+<header>RailSafe | Railway Safety Innovation</header>
+
+<nav>
+<a href="#problem">Problem</a>
+<a href="#solution">Solution</a>
+<a href="#sensors">Sensors</a>
+<a href="#working">Working Video</a>
+<a href="#energy">Electricity</a>
+</nav>
+
+<div class="hero">
+<h1>Smart Railway <span>Safety System</span></h1>
+<p>Making railway platforms safer with automatic safety barriers, smart sensors and a movable walkway.</p>
+<a href="#solution"><button>Explore Project</button></a>
+</div>
+
+<section id="problem">
+<h2>01. Problem Identification</h2>
+<div class="card">
+Passengers face serious risks while boarding and exiting trains. Accidental falls onto railway tracks and gaps between trains and platforms can cause accidents. A safer boarding system is needed.
+</div>
+</section>
+
+<section id="solution">
+<h2>02. Our Main Solution</h2>
+
+<div class="card">
+<h3>Automatic Safety Barrier</h3>
+<p>Protective doors separate passengers from railway tracks. They open automatically when the train stops at the correct position.</p>
+</div>
+
+<div class="card">
+<h3>Movable Walkway</h3>
+<p>An adjustable walkway extends between the train entrance and platform, replacing the need to step across the gap or use conventional stairs.</p>
+</div>
+
+<div class="card">
+<h3>Smart Automatic Operation</h3>
+<p>Sensors coordinate the barrier doors and movable walkway to improve passenger safety.</p>
+</div>
+</section>
+
+<section id="sensors">
+<h2>03. Smart Sensor Technology</h2>
+
+<div class="card">
+<h3>Train Detection Sensor</h3>
+<p>Identifies the approaching train.</p>
+</div>
+
+<div class="card">
+<h3>Position Sensor</h3>
+<p>Checks whether the train has stopped at the correct position.</p>
+</div>
+
+<div class="card">
+<h3>Obstacle Detection Sensor</h3>
+<p>Checks whether passengers or objects are blocking the doors. Closing is stopped if an obstacle is detected.</p>
+</div>
+
+<div class="card">
+<h3>Gap Detection Sensor</h3>
+<p>Measures the gap between the train and platform to help adjust the movable walkway.</p>
+</div>
+</section>
+
+<section id="working">
+<h2>04. Animated Working Demonstration</h2>
+<p>Watch the proposed safety barrier and walkway system.</p>
+
+<div class="scene">
+<div class="train" id="train">
+<div class="window"></div>
+</div>
+<div class="platform"></div>
+<div class="door left" id="left"></div>
+<div class="door right" id="right"></div>
+<div class="walk" id="walk"></div>
+</div>
+
+<p class="status" id="status">System Ready</p>
+<button onclick="play()">Play Animation</button>
+<button onclick="pause()">Pause</button>
+<button onclick="reset()">Replay</button>
+
+<div class="card">
+<h3>How It Works</h3>
+<p>
+1. Train detection sensor identifies the arriving train.<br>
+2. Position sensor checks the train's stopping position.<br>
+3. Safety barrier doors open automatically.<br>
+4. Gap sensor helps adjust the movable walkway.<br>
+5. Passengers board and exit safely.<br>
+6. Obstacle sensor checks that the passage is clear.<br>
+7. Walkway retracts and barrier doors close.
+</p>
+</div>
+</section>
+
+<section id="energy">
+<h2>05. Additional Feature - Electricity Generation</h2>
+
+<div class="card">
+<h3>Energy from Door Movement</h3>
+<p>A small generator connected to the barrier door mechanism can convert some mechanical energy from door movement into electrical energy.</p>
+
+<div class="generator" id="generator">⚙️</div>
+<p class="status" id="energyStatus">Generator Ready</p>
+<button onclick="generate()">Play Electricity Animation</button>
+<button onclick="stopEnergy()">Replay</button>
+
+<p>The generated electricity could be stored in a small battery and used for low-power applications. Actual energy output needs practical testing.</p>
+</div>
+</section>
+
+<section>
+<h2>06. Expected Benefits</h2>
+<div class="card">Passenger safety and protection from accidental falls.</div>
+<div class="card">Easy boarding and exiting through the movable walkway.</div>
+<div class="card">Better operation using smart sensors.</div>
+<div class="card">Additional possibility of energy recovery.</div>
+</section>
+
+<section>
+<h2>07. Conclusion</h2>
+<div class="card">
+RailSafe aims to improve railway passenger safety through automatic safety barriers, smart sensors and a movable walkway. Electricity generation is an additional feature that may recover some energy from door movement.
+</div>
+</section>
+
+<footer>
+<h3>RailSafe - A Safer Railway Future</h3>
+<p>IDT Lab Project</p>
+</footer>
+
+<script>
+let timers=[],paused=false;
+
+function reset(){
+timers.forEach(clearTimeout);
+timers=[];
+paused=false;
+train.style.animation="none";
+train.offsetHeight;
+train.style.left="-140px";
+left.classList.remove("open");
+right.classList.remove("open");
+walk.classList.remove("extend");
+status.innerText="System Ready";
+}
+
+function play(){
+reset();
+let steps=[
+[100,()=>{train.style.animation="arrive 4s forwards";status.innerText="Train Arriving - Sensor Active"}],
+[4300,()=>status.innerText="Train Position Verified"],
+[5500,()=>{left.classList.add("open");right.classList.add("open");status.innerText="Safety Barrier Open"}],
+[7000,()=>{walk.classList.add("extend");status.innerText="Movable Walkway Extended"}],
+[9500,()=>status.innerText="Passengers Boarding and Exiting"],
+[12000,()=>{walk.classList.remove("extend");status.innerText="Walkway Retracting"}],
+[13500,()=>{left.classList.remove("open");right.classList.remove("open");status.innerText="Safety Barrier Closed"}]
+];
+steps.forEach(s=>timers.push(setTimeout(()=>{if(!paused)s[1]()},s[0])));
+}
+
+function pause(){
+paused=true;
+timers.forEach(clearTimeout);
+status.innerText="Animation Paused";
+}
+
+let energyTimer;
+function generate(){
+stopEnergy();
+generator.style.animation="spin 1s linear infinite";
+energyStatus.innerText="Generator Moving - Producing Energy";
+energyTimer=setTimeout(()=>{
+generator.style.animation="none";
+energyStatus.innerText="Energy Demonstration Completed";
+},3500);
+}
+function stopEnergy(){
+clearTimeout(energyTimer);
+generator.style.animation="none";
+energyStatus.innerText="Generator Ready";
+}
+</script>
+<style>
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+</body>
+</html>
